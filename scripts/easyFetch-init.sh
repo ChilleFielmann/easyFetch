@@ -52,4 +52,5 @@ runuser -l aixconcept -c "ssh-keygen -t rsa -b 2048 -C easyFetch"
 cd /home/aixconcept/
 su aixconcept
 cd ~/easyFetch
+echo "Installation abgeschlossen!"
 cat info
