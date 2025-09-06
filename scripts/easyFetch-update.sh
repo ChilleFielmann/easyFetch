@@ -14,5 +14,8 @@ tar -xzf /home/aixconcept/easyFetch/repo.tar.gz --strip-components=1 easyFetch-m
 #Archiv löschen
 rm -f /home/aixconcept/easyFetch/repo.tar.gz
 
+#Rechte wieder herstellen
+sudo chown -R aixconcept:aixconcept /home/aixconcept/easyFetch
+
 #Finish
 echo "Nice! easyFetch ist nun auf dem neusten Stand!"
