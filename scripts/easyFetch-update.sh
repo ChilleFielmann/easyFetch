@@ -12,7 +12,7 @@ tar -xzf /home/aixconcept/easyFetch/repo.tar.gz --strip-components=1 easyFetch-m
 tar -xzf /home/aixconcept/easyFetch/repo.tar.gz --strip-components=1 easyFetch-main/preps
 
 #Archiv löschen
-rm -f /home/aixconcept/easyFetch/repo.tar.gz &&
+rm -f /home/aixconcept/easyFetch/repo.tar.gz
 
 #Finish
 echo "Nice! easyFetch ist nun auf dem neusten Stand!"
