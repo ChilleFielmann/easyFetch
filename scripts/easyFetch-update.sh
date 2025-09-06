@@ -3,9 +3,13 @@
 #Repository herunterladen
 wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/easyFetch/repo.tar.gz &&
 
+#Alte Pakete entfernen
+rm -r /home/aixconcept/easyFetch/scripts
+rm -r /home/aixconcept/easyFetch/preps
+
 #Nur scripts und preps entpacken
-tar -xzf repo.tar.gz --strip-components=1 easyFetch-main/scripts -C /home/aixconcept/easyFetch &&
-tar -xzf repo.tar.gz --strip-components=1 easyFetch-main/preps -C /home/aixconcept/easyFetch &&
+tar -xzf /home/aixconcept/easyFetch/repo.tar.gz --strip-components=1 easyFetch-main/scripts
+tar -xzf /home/aixconcept/easyFetch/repo.tar.gz --strip-components=1 easyFetch-main/preps
 
 #Archiv löschen
 rm -f /home/aixconcept/easyFetch/repo.tar.gz &&
