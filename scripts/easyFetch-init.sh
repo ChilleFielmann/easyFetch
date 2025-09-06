@@ -4,7 +4,7 @@
 version="1.0"
 kunde=""
 standort=""
-updateserver="172.104.236.214" 
+github-user="ChilleFielmann" 
 
 #Kunde abfragen
 echo -n "Kunde:"
@@ -20,6 +20,7 @@ apt -y upgrade
 apt install -y tldr
 apt install -y ipcalc
 apt install -y nmap
+apt install -y openvpn
 snap install yq
 
 #Maschine umbenennen
@@ -29,8 +30,13 @@ hostnamectl set-hostname easyFetch
 adduser aixconcept
 sudo usermod -aG sudo aixconcept
 
+#Repository Herunterladen
+wget https://github.com/${github-user}/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz
+tar -xzf /home/aixconcept/repo.tar.gz
+mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch
+rm /home/aixconcept/repo.tar.gz
+
 #Ordnerstruktur anlegen
-sftp -r install@$updateserver:/home/install/easyFetch /home/aixconcept/easyFetch 
 mkdir /home/aixconcept/easyFetch/fetches
 touch /home/aixconcept/easyFetch/info
 echo Version: $version >> /home/aixconcept/easyFetch/info
