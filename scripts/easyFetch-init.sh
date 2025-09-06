@@ -31,7 +31,7 @@ sudo usermod -aG sudo aixconcept
 
 #Aliase Anlegen
 touch /home/aixconcept/.bash_aliases
-echo alias easyFetch-update= "/home/aixconcept/scripts/easyFetch-update.sh" >> /home/aixconcept/.bash_aliases
+echo alias easyFetch-update="/home/aixconcept/scripts/easyFetch-update.sh" >> /home/aixconcept/.bash_aliases
 
 #Repository Herunterladen
 wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz &&
