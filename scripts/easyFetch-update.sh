@@ -16,7 +16,7 @@ rm -f /home/aixconcept/easyFetch/repo.tar.gz
 
 #Rechte wieder herstellen
 sudo chown -R aixconcept:aixconcept /home/aixconcept/easyFetch
-sudo chmod u+x /home/aixconcept/scripts
+chmod a+x /home/aixconcept/easyFetch/scripts/*
 
 #Finish
 echo "Nice! easyFetch ist nun auf dem neusten Stand!"
