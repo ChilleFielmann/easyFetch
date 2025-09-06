@@ -49,6 +49,7 @@ echo $(date +%F) >> /home/aixconcept/easyFetch/info
 #RSA-Schlüsselpaar erstellen
 runuser -l aixconcept -c "ssh-keygen -t rsa -b 2048 -C easyFetch"
 
+#Finnish
 cd /home/aixconcept/
 su aixconcept
 cd ~/easyFetch
