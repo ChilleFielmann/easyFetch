@@ -32,7 +32,6 @@ sudo usermod -aG sudo aixconcept
 #Aliase Anlegen
 runuser -l aixconcept -c "touch /home/aixconcept/.bash_aliases"
 runuser -l aixconcept -c "echo 'alias easyFetch-update="/home/aixconcept/easyFetch/scripts/easyFetch-update.sh"' >> /home/aixconcept/.bash_aliases"
-chmod u+x /home/aixconcept/easyFetch/scripts/easyFetch-update.sh
 source /home/aixconcept/.bash_aliases
 
 #Repository Herunterladen
@@ -40,6 +39,9 @@ wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz 
 tar -xzf /home/aixconcept/repo.tar.gz -C /home/aixconcept
 mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch
 rm -f /home/aixconcept/repo.tar.gz
+chown -R aixconcept:aixconcept /home/aixconcept/easyFetch/scripts
+chown -R aixconcept:aixconcept /home/aixconcept/easyFetch/preps
+chmod a+x /home/aixconcept/easyFetch/scripts/*
 
 #Ordnerstruktur anlegen
 mkdir /home/aixconcept/easyFetch/fetches
