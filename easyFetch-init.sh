@@ -16,10 +16,11 @@ read standort
 apt update
 apt -y upgrade 
 
-#QoL Packete installieren
+#Packete installieren
 apt install -y tldr
 apt install -y ipcalc
 apt install -y nmap
+snap install yq
 
 #Maschine umbenennen
 hostnamectl set-hostname easyFetch
