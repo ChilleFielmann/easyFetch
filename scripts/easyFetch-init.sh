@@ -42,6 +42,7 @@ rm -f /home/aixconcept/repo.tar.gz
 chown -R aixconcept:aixconcept /home/aixconcept/easyFetch/scripts
 chown -R aixconcept:aixconcept /home/aixconcept/easyFetch/preps
 chmod a+x /home/aixconcept/easyFetch/scripts/*
+sudo chown -R aixconcept:aixconcept /home/aixconcept/easyFetch
 
 #Ordnerstruktur anlegen
 mkdir /home/aixconcept/easyFetch/fetches
