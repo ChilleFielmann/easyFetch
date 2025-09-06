@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #Repository herunterladen
-wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/easyFetch/repo.tar.gz &&
+sudo wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/easyFetch/repo.tar.gz &&
 
 #Alte Pakete entfernen
 rm -r /home/aixconcept/easyFetch/scripts
