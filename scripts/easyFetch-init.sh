@@ -37,7 +37,7 @@ echo alias easyFetch-init= ""
 wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz &&
 tar -xzf /home/aixconcept/repo.tar.gz &&
 mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch &&
-rm /home/aixconcept/repo.tar.gz
+rm -f /home/aixconcept/repo.tar.gz
 
 #Ordnerstruktur anlegen
 mkdir /home/aixconcept/easyFetch/fetches
@@ -49,6 +49,6 @@ echo $(date +%F) >> /home/aixconcept/easyFetch/info
 #RSA-Schlüsselpaar erstellen
 runuser -l aixconcept -c "ssh-keygen -t rsa -b 2048 -C easyFetch"
 
-echo "Installation Beendet!"
 cd /home/aixconcept/
 su aixconcept
+cd ~/easyFetch
