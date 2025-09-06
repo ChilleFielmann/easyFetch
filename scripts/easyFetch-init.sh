@@ -3,8 +3,7 @@
 #Variablen
 version="1.0"
 kunde=""
-standort=""
-github-user="ChilleFielmann" 
+standort="" 
 
 #Kunde abfragen
 echo -n "Kunde:"
@@ -30,10 +29,14 @@ hostnamectl set-hostname easyFetch
 adduser aixconcept
 sudo usermod -aG sudo aixconcept
 
+#Aliase Anlegen
+touch /home/aixconcept/.bash_aliases
+echo alias easyFetch-init= ""
+
 #Repository Herunterladen
-wget https://github.com/${github-user}/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz
-tar -xzf /home/aixconcept/repo.tar.gz
-mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch
+wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz &&
+tar -xzf /home/aixconcept/repo.tar.gz &&
+mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch &&
 rm /home/aixconcept/repo.tar.gz
 
 #Ordnerstruktur anlegen
