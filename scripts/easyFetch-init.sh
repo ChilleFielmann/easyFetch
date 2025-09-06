@@ -32,26 +32,26 @@ sudo usermod -aG sudo aixconcept
 #Aliase Anlegen
 touch /home/aixconcept/.bash_aliases
 echo alias easyFetch-update="/home/aixconcept/scripts/easyFetch-update.sh" >> /home/aixconcept/.bash_aliases
+source /home/aixconcept/.bash_aliases
 
 #Repository Herunterladen
-wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz &&
-tar -xzf /home/aixconcept/repo.tar.gz &&
-mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch &&
+wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz
+tar -xzf /home/aixconcept/repo.tar.gz
+mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch
 rm -f /home/aixconcept/repo.tar.gz
 
 #Ordnerstruktur anlegen
 mkdir /home/aixconcept/easyFetch/fetches
 touch /home/aixconcept/easyFetch/info
-echo Version: $version >> /home/aixconcept/easyFetch/info
-echo ${standort}-${kunde} >> /home/aixconcept/easyFetch/info
+echo "Version: $version" >> /home/aixconcept/easyFetch/info
+echo "${standort}-${kunde}" >> /home/aixconcept/easyFetch/info
 echo $(date +%F) >> /home/aixconcept/easyFetch/info 
 
 #RSA-Schlüsselpaar erstellen
 runuser -l aixconcept -c "ssh-keygen -t rsa -b 2048 -C easyFetch"
 
 #Finnish
-cd /home/aixconcept/
-su aixconcept
-cd ~/easyFetch
+cd /home/aixconcept/easyFetch
 echo "Installation abgeschlossen!"
 cat info
+su aixconcept
