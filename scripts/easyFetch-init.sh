@@ -30,9 +30,10 @@ adduser aixconcept
 sudo usermod -aG sudo aixconcept
 
 #Aliase Anlegen
-touch /home/aixconcept/.bash_aliases
-echo 'alias easyFetch-update="/home/aixconcept/easyFetch/scripts/easyFetch-update.sh"' >> /home/aixconcept/.bash_aliases
+runuser -l aixconcept -c "touch /home/aixconcept/.bash_aliases"
+runuser -l aixconcept -c "echo 'alias easyFetch-update="/home/aixconcept/easyFetch/scripts/easyFetch-update.sh"' >> /home/aixconcept/.bash_aliases"
 source /home/aixconcept/.bash_aliases
+ 
 
 #Repository Herunterladen
 wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz
