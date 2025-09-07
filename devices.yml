@@ -1,10 +1,11 @@
 #Zu sichernde Geräte eintragen
+#Leerzeichen nach : !
 device00:
- - ip: "10.1.0.1"
-   model: "opnsense"
+ - ip: 10.1.0.1
+   model: opnsense
 device01:
- - ip: "10.1.4.1"
-   model: "2930"
+ - ip: 10.1.4.1
+   model: 2930
 device02:
  - ip:
    model:
