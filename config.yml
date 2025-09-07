@@ -1,7 +1,2 @@
-#Updates
-update-server: 172.104.236.214
 
-#SSH
-ssh-user: admin
-private-key: /home/aixconcept/.ssh/id_rsa
 
