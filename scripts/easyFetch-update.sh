@@ -8,8 +8,8 @@ rm -r /home/aixconcept/easyFetch/scripts
 rm -r /home/aixconcept/easyFetch/preps
 
 #Nur scripts und preps entpacken
-tar -xzf /home/aixconcept/easyFetch/repo.tar.gz --strip-components=1 easyFetch-main/easyFetch/scripts
-tar -xzf /home/aixconcept/easyFetch/repo.tar.gz --strip-components=1 easyFetch-main/easyFetch/preps 
+tar -xzf /home/aixconcept/easyFetch/repo.tar.gz --strip-components=1 easyFetch-main/scripts
+tar -xzf /home/aixconcept/easyFetch/repo.tar.gz --strip-components=1 easyFetch-main/preps 
 
 #Archiv löschen
 rm -f /home/aixconcept/easyFetch/repo.tar.gz
