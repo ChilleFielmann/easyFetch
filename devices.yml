@@ -1,17 +1,25 @@
 #Zu sichernde Geräte eintragen
-
+devices:
+ - ip:"10.1.0.1"
+   model:"opnsense"
+devices:
+ - ip:"10.1.4.1"
+   model:"2930"
 devices:
  - ip:
-   modell:
+   model:
 devices:
  - ip:
-   modell:
+   model:
 devices:
  - ip:
-   modell:
+   model:
 devices:
  - ip:
-   modell:
+   model:
 devices:
  - ip:
-   modell:
+   model:
+devices:
+ - ip:
+   model:
