@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Maschine umbenennen
-hostnamectl set-hostname easyFetch &&
+hostnamectl set-hostname easyFetch
 
 #Benutzer aixconcept mit sudo rechten und bash-shell
 useradd -m aixconcept
@@ -36,8 +36,8 @@ source /home/aixconcept/.bash_aliases
 sudo -u aixconcept ssh-keygen -t rsa -b 2048 -f /home/aixconcept/.ssh/is_rsa -N '' -q -C easyFetch
 
 #RSA aktivieren
-echo "HostkeyAlgorithms +ssh-rsa" >> /etc/ssh/ssh_config &&
-echo "PubkeyAcceptedAlgorithms +ssh-rsa" >> /etc/ssh/ssh_config &&
+echo "HostkeyAlgorithms +ssh-rsa" >> /etc/ssh/ssh_config
+echo "PubkeyAcceptedAlgorithms +ssh-rsa" >> /etc/ssh/ssh_config
 
 
 #Finnish
