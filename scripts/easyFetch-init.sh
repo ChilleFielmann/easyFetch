@@ -40,7 +40,7 @@ touch /home/aixconcept/easyFetch/info &&
 
 
 #RSA-Schlüsselpaar erstellen
-runuser -l aixconcept -c "ssh-keygen -t rsa -b 2048 -f /home/aixconcept/.ssh/is_rsa -N -q -C easyFetch"
+runuser -l aixconcept -c "ssh-keygen -t rsa -b 2048 -f /home/aixconcept/.ssh/is_rsa -N '' -q -C easyFetch"
 
 #Finnish
 cd /home/aixconcept/easyFetch
