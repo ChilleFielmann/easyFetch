@@ -1,5 +1,5 @@
 #!/bin/bash
-exec > /dev/null 2>&1
+exec > /dev/null
 
 #Variablen
 version="1.0"
