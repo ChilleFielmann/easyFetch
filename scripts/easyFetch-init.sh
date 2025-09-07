@@ -34,7 +34,8 @@ echo "[OK]" &&
 
 #Benutzer aixconcept anlegen
 echo "[INFO]Benutzer aixconcept wird angelegt..." 
-adduser aixconcept &&
+adduser --gecos "" --disabled-password aixconcept > dev/null &&
+echo "aixconcept:#23456" | chpasswd &&
 sudo usermod -aG sudo aixconcept &&
 echo "[OK]" &&
 
