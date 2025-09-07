@@ -17,8 +17,8 @@ apt -y upgrade
 #Repository Herunterladen
 sudo -u aixconcept wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz
 sudo -u aixconcept tar -xzf /home/aixconcept/repo.tar.gz -C /home/aixconcept
-sudo -u aixconcept mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch
-sudo -u aixconcept rm -f /home/aixconcept/repo.tar.gz
+rm -f /home/aixconcept/repo.tar.gz
+mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch
 chmod u+x /home/aixconcept/easyFetch/scripts/*
 
 #Pakete installieren
@@ -29,18 +29,12 @@ apt install -y openvpn
 snap install yq 
 
 #Aliase Anlegen
-runuser -l aixconcept -c "touch /home/aixconcept/.bash_aliases"  &&
-runuser -l aixconcept -c "echo 'alias easyFetch-update="/home/aixconcept/easyFetch/scripts/easyFetch-update.sh"' >> /home/aixconcept/.bash_aliases"  &&
-source /home/aixconcept/.bash_aliases
-
-
-#Ordnerstruktur anlegen
-mkdir /home/aixconcept/easyFetch/fetches &&
-touch /home/aixconcept/easyFetch/info &&
-
+#runuser -l aixconcept -c "touch /home/aixconcept/.bash_aliases"  &&
+#runuser -l aixconcept -c "echo 'alias easyFetch-update="/home/aixconcept/easyFetch/scripts/easyFetch-update.sh"' >> /home/aixconcept/.bash_aliases"  &&
+#source /home/aixconcept/.bash_aliases
 
 #RSA-Schlüsselpaar erstellen
-runuser -l aixconcept -c "ssh-keygen -t rsa -b 2048 -f /home/aixconcept/.ssh/is_rsa -N '' -q -C easyFetch"
+sudo -u aixconcept ssh-keygen -t rsa -b 2048 -f /home/aixconcept/.ssh/is_rsa -N '' -q -C easyFetch
 
 #RSA aktivieren
 echo "HostkeyAlgorithms +ssh-rsa" >> /etc/ssh/ssh_config &&
@@ -48,6 +42,5 @@ echo "PubkeyAcceptedAlgorithms +ssh-rsa" >> /etc/ssh/ssh_config &&
 
 
 #Finnish
-cd /home/aixconcept/easyFetch
 su - aixconcept
 
