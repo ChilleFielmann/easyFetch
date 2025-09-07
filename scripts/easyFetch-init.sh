@@ -28,10 +28,9 @@ apt install -y nmap
 apt install -y openvpn 
 snap install yq 
 
-#Aliase Anlegen
-#runuser -l aixconcept -c "touch /home/aixconcept/.bash_aliases"  &&
-#runuser -l aixconcept -c "echo 'alias easyFetch-update="/home/aixconcept/easyFetch/scripts/easyFetch-update.sh"' >> /home/aixconcept/.bash_aliases"  &&
-#source /home/aixconcept/.bash_aliases
+#Update-Befehl erstellen
+sudo -u aixconcept echo "alias easyFetch-update='/home/aixconcept/easyFetch/scripts/easyFetch-update.sh'" >> /home/aixconcept/.bash_aliases
+source /home/aixconcept/.bash_aliases
 
 #RSA-Schlüsselpaar erstellen
 sudo -u aixconcept ssh-keygen -t rsa -b 2048 -f /home/aixconcept/.ssh/is_rsa -N '' -q -C easyFetch
