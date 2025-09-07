@@ -42,6 +42,11 @@ touch /home/aixconcept/easyFetch/info &&
 #RSA-Schlüsselpaar erstellen
 runuser -l aixconcept -c "ssh-keygen -t rsa -b 2048 -f /home/aixconcept/.ssh/is_rsa -N '' -q -C easyFetch"
 
+#RSA aktivieren
+echo "HostkeyAlgorithms +ssh-rsa" >> /etc/ssh/ssh_config &&
+echo "PubkeyAcceptedAlgorithms +ssh-rsa" >> /etc/ssh/ssh_config &&
+
+
 #Finnish
 cd /home/aixconcept/easyFetch
 su aixconcept
