@@ -13,13 +13,14 @@ echo -n "Standort:"
 read standort
 
 #Packete upgraden
-echo "[INFO]Pakete werden aktualisiert..." 
-apt update
-apt -y upgrade
+echo "[INFO]Pakete werden aktualisiert..."
+apt update > /dev/null
+apt -y upgrade > /dev/null
 echo "[OK]Pakete aktualisiert!" &&
 
 #Pakete installieren
-echo "[INFO]Pakete werden installiert..."  
+echo "[INFO]Pakete werden installiert..."
+sleep 2
 apt install -y tldr
 apt install -y ipcalc
 apt install -y nmap
