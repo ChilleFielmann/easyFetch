@@ -22,8 +22,6 @@ mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch
 chmod u+x /home/aixconcept/easyFetch/scripts/*
 
 #Pakete installieren
-apt install -y tldr 
-apt install -y ipcalc 
 apt install -y nmap 
 apt install -y openvpn 
 snap install yq 
