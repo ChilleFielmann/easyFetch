@@ -1,4 +1,5 @@
-#! /bin/bash
+#!/bin/bash
+exec > /dev/null 2>&1
 
 #Variablen
 version="1.0"
@@ -12,50 +13,78 @@ echo -n "Standort:"
 read standort
 
 #Packete upgraden
+echo "[INFO]Pakete werden aktualisiert..." 
 apt update
-apt -y upgrade 
+apt -y upgrade
+echo "[OK]Pakete aktualisiert!" &&
 
-#Packete installieren
+#Pakete installieren
+echo "[INFO]Pakete werden installiert..."  
 apt install -y tldr
 apt install -y ipcalc
 apt install -y nmap
 apt install -y openvpn
 snap install yq
+echo "[OK]" &&
 
 #Maschine umbenennen
-hostnamectl set-hostname easyFetch
+echo "[INFO]Hostname setzen..."
+sleep 1
+hostnamectl set-hostname easyFetch &&
+echo "[OK]" &&
 
 #Benutzer aixconcept anlegen
-adduser aixconcept
-sudo usermod -aG sudo aixconcept
+echo "[INFO]Benutzer aixconcept wird angelegt..." 
+adduser aixconcept &&
+sudo usermod -aG sudo aixconcept &&
+echo "[OK]" &&
 
 #Aliase Anlegen
-runuser -l aixconcept -c "touch /home/aixconcept/.bash_aliases"
-runuser -l aixconcept -c "echo 'alias easyFetch-update="/home/aixconcept/easyFetch/scripts/easyFetch-update.sh"' >> /home/aixconcept/.bash_aliases"
+echo "[INFO]Aliase werden angelegt..."
+sleep 1
+runuser -l aixconcept -c "touch /home/aixconcept/.bash_aliases" &&
+runuser -l aixconcept -c "echo 'alias easyFetch-update="/home/aixconcept/easyFetch/scripts/easyFetch-update.sh"' >> /home/aixconcept/.bash_aliases" &&
 source /home/aixconcept/.bash_aliases
+echo "[OK]" &&
 
 #Repository Herunterladen
-wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz
-tar -xzf /home/aixconcept/repo.tar.gz -C /home/aixconcept
-mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch
-rm -f /home/aixconcept/repo.tar.gz
-chown -R aixconcept:aixconcept /home/aixconcept/easyFetch/scripts
-chown -R aixconcept:aixconcept /home/aixconcept/easyFetch/preps
-chmod a+x /home/aixconcept/easyFetch/scripts/*
-sudo chown -R aixconcept:aixconcept /home/aixconcept/easyFetch
-
+echo "[INFO]Repository wird heruntergeladen..."
+wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz &&
+echo "[OK]" &&
+echo "[INFO]Repository wird entpackt..."
+tar -xzf /home/aixconcept/repo.tar.gz -C /home/aixconcept &&
+mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch &&
+rm -f /home/aixconcept/repo.tar.gz &&
+echo "[OK]" &&
+echo "[INFO]Rechte werden gesetzt"
+chown -R aixconcept:aixconcept /home/aixconcept/easyFetch/scripts &&
+chown -R aixconcept:aixconcept /home/aixconcept/easyFetch/preps &&
+chmod a+x /home/aixconcept/easyFetch/scripts/* &&
+sudo chown -R aixconcept:aixconcept /home/aixconcept/easyFetch &&
+echo "[OK]" &&
 #Ordnerstruktur anlegen
-mkdir /home/aixconcept/easyFetch/fetches
-touch /home/aixconcept/easyFetch/info
-echo "Version: $version" >> /home/aixconcept/easyFetch/info
-echo "${standort}-${kunde}" >> /home/aixconcept/easyFetch/info
-echo $(date +%F) >> /home/aixconcept/easyFetch/info 
+echo "[INFO]Ordnerstruktur wird angelegt..."
+sleep 1
+mkdir /home/aixconcept/easyFetch/fetches &&
+touch /home/aixconcept/easyFetch/info &&
+echo "[OK]" &&
+
+sleep 1
+
+echo "[INFO]Info.txt wird beschrieben..."
+sleep 1
+echo "Version: $version" >> /home/aixconcept/easyFetch/info &&
+echo "${standort}-${kunde}" >> /home/aixconcept/easyFetch/info &&
+echo $(date +%F) >> /home/aixconcept/easyFetch/info &&
+echo "[OK]" &&
 
 #RSA-Schlüsselpaar erstellen
-runuser -l aixconcept -c "ssh-keygen -t rsa -b 2048 -C easyFetch"
+echo "SSH-Keys werden erstellt..."
+runuser -l aixconcept -c "ssh-keygen -t rsa -b 2048 -C easyFetch" &&
+echo "[OK]" &&
 
 #Finnish
 cd /home/aixconcept/easyFetch
-echo "Installation abgeschlossen!"
+echo "[INFO]Installation abgeschlossen!"
 cat info
 su aixconcept
