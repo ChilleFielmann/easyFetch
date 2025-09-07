@@ -1,19 +1,11 @@
 len#! /bin/bash
 
+#Altes Repository löschen
+rm -r /home/aixconcept/easyFetch
+
 #Repository herunterladen
-sudo wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/easyFetch/repo.tar.gz &&
-
-#Alte Pakete entfernen
-rm -r /home/aixconcept/easyFetch/scripts
-rm -r /home/aixconcept/easyFetch/preps
-
-#Nur scripts und preps entpacken
-tar -xzf /home/aixconcept/easyFetch/repo.tar.gz --strip-components=1 easyFetch-main/scripts
-tar -xzf /home/aixconcept/easyFetch/repo.tar.gz --strip-components=1 easyFetch-main/preps 
-
-#Archiv löschen
-rm -f /home/aixconcept/easyFetch/repo.tar.gz
-
-#Rechte wieder herstellen
-sudo chown -R aixconcept:aixconcept /home/aixconcept/easyFetch
-sudo chmod -R u+rwx /home/aixconcept/easyFetch
+sudo -u aixconcept wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz
+sudo -u aixconcept tar -xzf /home/aixconcept/repo.tar.gz -C /home/aixconcept
+rm -f /home/aixconcept/repo.tar.gz
+mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch
+chmod u+x /home/aixconcept/easyFetch/scripts/*
