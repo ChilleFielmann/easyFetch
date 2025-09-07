@@ -15,7 +15,7 @@ snap install yq
 hostnamectl set-hostname easyFetch &&
 
 #Benutzer aixconcept anlegen
-adduser --gecos "" --disabled-password aixconcept > dev/null &&
+adduser --gecos "" --disabled-password aixconcept
 echo "aixconcept:#23456" | chpasswd &&
 sudo usermod -aG sudo aixconcept &&
 
