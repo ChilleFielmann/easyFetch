@@ -20,12 +20,11 @@ echo "[OK]Pakete aktualisiert!" &&
 
 #Pakete installieren
 echo "[INFO]Pakete werden installiert..."
-sleep 2
-apt install -y tldr
-apt install -y ipcalc
-apt install -y nmap
-apt install -y openvpn
-snap install yq
+apt install -y tldr > /dev/null
+apt install -y ipcalc > /dev/null
+apt install -y nmap > /dev/null
+apt install -y openvpn > /dev/null
+snap install yq > /dev/null
 echo "[OK]" &&
 
 #Maschine umbenennen
