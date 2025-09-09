@@ -32,7 +32,8 @@ apt install -y openvpn
 snap install yq 
 
 #Update-Befehl erstellen
-sudo mv /home/${user}/easyFetch/scripts/easyFetch-update.sh /usr/local/bin/easyFetch-update
+mv /home/${user}aixconcept/easyFetch/scripts/easyFetch-update.sh /usr/local/bin/easyFetch-update
+mv /home/${user}/easyFetch/scripts/pgu-connect.sh /usr/local/bin/pgu-connect
 
 #RSA-Schlüsselpaar erstellen
 sudo -u ${user} ssh-keygen -t rsa -b 2048 -f /home/${user}/.ssh/is_rsa -N '' -q -C easyFetch
