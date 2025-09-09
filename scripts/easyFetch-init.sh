@@ -7,7 +7,7 @@ user=""
 hostnamectl set-hostname easyFetch
 
 #Benutzer mit sudo rechten und bash-shell anlegen
-echo "Benutzername:"
+echo -n "Benutzername:"
 read user
 useradd -m ${user}
 echo "Passwort für Benutzer: ${user}"
