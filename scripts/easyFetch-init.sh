@@ -1,25 +1,30 @@
 #!/bin/bash
 
+#Variablen
+user=""
+
 #Maschine umbenennen
 hostnamectl set-hostname easyFetch
 
-#Benutzer aixconcept mit sudo rechten und bash-shell
-useradd -m aixconcept
-echo "Passwort für Benutzer: aixconcept"
-passwd aixconcept
-usermod -aG sudo aixconcept
-chsh -s /bin/bash aixconcept
+#Benutzer mit sudo rechten und bash-shell anlegen
+echo "Benutzername:"
+read user
+useradd -m ${user}
+echo "Passwort für Benutzer: ${user}"
+passwd ${user}
+usermod -aG sudo ${user}
+chsh -s /bin/bash ${user}
 
 #Packete upgraden
 apt update
 apt -y upgrade
 
 #Repository Herunterladen
-sudo -u aixconcept wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/aixconcept/repo.tar.gz
-sudo -u aixconcept tar -xzf /home/aixconcept/repo.tar.gz -C /home/aixconcept
-rm -f /home/aixconcept/repo.tar.gz
-mv /home/aixconcept/easyFetch-main /home/aixconcept/easyFetch
-chmod u+x /home/aixconcept/easyFetch/scripts/*
+sudo -u ${user} wget https://github.com/ChilleFielmann/easyFetch/archive/refs/heads/main.tar.gz -O /home/${user}/repo.tar.gz
+sudo -u ${user} tar -xzf /home/${user}/repo.tar.gz -C /home/${user}
+rm -f /home/${user}/repo.tar.gz
+mv /home/${user}/easyFetch-main /home/${user}/easyFetch
+chmod u+x /home/${user}/easyFetch/scripts/*
 
 #Pakete installieren
 apt install -y nmap 
@@ -27,11 +32,10 @@ apt install -y openvpn
 snap install yq 
 
 #Update-Befehl erstellen
-sudo -u aixconcept echo "alias easyFetch-update='/home/aixconcept/easyFetch/scripts/easyFetch-update.sh'" >> /home/aixconcept/.bash_aliases
-source /home/aixconcept/.bash_aliases
+sudo mv /home/${user}/easyFetch/scripts/easyFetch-update.sh /usr/local/bin/easyFetch-update
 
 #RSA-Schlüsselpaar erstellen
-sudo -u aixconcept ssh-keygen -t rsa -b 2048 -f /home/aixconcept/.ssh/is_rsa -N '' -q -C easyFetch
+sudo -u ${user} ssh-keygen -t rsa -b 2048 -f /home/${user}/.ssh/is_rsa -N '' -q -C easyFetch
 
 #RSA aktivieren
 echo "HostkeyAlgorithms +ssh-rsa" >> /etc/ssh/ssh_config
@@ -39,5 +43,5 @@ echo "PubkeyAcceptedAlgorithms +ssh-rsa" >> /etc/ssh/ssh_config
 
 
 #Finnish
-su - aixconcept
+su - ${user}
 
